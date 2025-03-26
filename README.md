@@ -1,6 +1,65 @@
 # Digital-Visual-Effects---High-Dynamic-Range-Imaging
 @NTUCS
 
+---
+這個專案包含四個 Python 程式，主要目的是進行高動態範圍（HDR）影像的處理、生成及評估，流程如下：
+
+### 1. **對齊影像 (HDR_MTB.py)**
+   - **目的**: 使用 MTB（Median Threshold Bitmap）算法對不同曝光時間拍攝的影像進行對齊。
+   - **輸入**: 一個資料夾，裡面包含多張不同曝光的影像。
+   - **輸出**: 輸出對齊後的影像，並保存至名為 "aligned" 的資料夾中。
+   - **步驟**:
+     - 將每張影像轉換為灰階。
+     - 根據灰階影像的中位數進行二值化，生成位圖。
+     - 使用 MTB 算法對齊影像，並保存最佳位移。
+   
+   **使用方法**:
+   ```bash
+   python HDR_MTB.py
+   ```
+   輸入資料夾路徑後，對齊後的影像將儲存在 "aligned" 資料夾中。
+
+### 2. **生成 HDR 影像與 Tone Mapping (HDR_Debevec.py 和 HDR_Robertson.py)**
+   - **目的**: 使用第一步驟輸出的對齊影像生成 HDR 影像，並應用 Tone Mapping 技術（Drago、Mantiuk 和 Reinhard）進行處理。
+   - **輸入**: 來自 HDR_MTB.py 的對齊影像。
+   - **輸出**: 生成 HDR 影像，並使用不同的 Tone Mapping 算法（Drago、Mantiuk 和 Reinhard）將其轉換為低動態範圍（LDR）影像。
+   - **步驟**:
+     - 載入影像及其曝光時間。
+     - 使用 Debevec 方法估算相機反應曲線。
+     - 合成 HDR 影像並應用 Tone Mapping。
+
+   **使用方法**:
+   ```bash
+   python HDR_Debevec.py
+   python HDR_Robertson.py
+   ```
+   輸入影像資料夾路徑，程式將生成 HDR 影像並應用 Tone Mapping，輸出 LDR 影像。
+
+### 3. **LDR 影像品質判斷 (HDR_color.py)**
+   - **目的**: 評估第二步驟輸出的 LDR 影像品質，根據影像的亮度和飽和度指標進行判斷。
+   - **輸入**: 來自 HDR_Debevec.py 或 HDR_Robertson.py 的 LDR 影像。
+   - **輸出**: 顯示影像的亮度直方圖及原始影像，並計算並輸出平均亮度、亮度標準差、平均飽和度和飽和度標準差等指標。
+   - **步驟**:
+     - 計算影像的亮度直方圖。
+     - 計算影像的亮度和飽和度指標。
+
+   **使用方法**:
+   ```bash
+   python HDR_color.py
+   ```
+   程式將讓使用者選擇一張影像，並顯示亮度直方圖及原始影像，計算並顯示影像品質指標。
+
+---
+
+這四個程式依照順序運行，第一步驟用於影像對齊，第二步驟進行 HDR 影像生成和 Tone Mapping，第三步驟用來評估生成的 LDR 影像品質，以下分別說明不同程式。
+
+---
+
+# HDR_Debevec.py
+
+---
+
+
 本專案示範如何利用多張不同曝光時間的影像，使用 Debevec & Malik 方法估計相機反應曲線並合成 HDR 影像，最後透過各式 Tone Mapping 方法輸出 LDR 影像。本程式包含：
 
 1. **讀取資料夾中的多張影像及其曝光時間**  
