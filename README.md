@@ -7,6 +7,7 @@
 ### 1. **對齊影像 (HDR_MTB.py)**
    - **目的**: 使用 MTB（Median Threshold Bitmap）算法對不同曝光時間拍攝的影像進行對齊。
    - **輸入**: 一個資料夾，裡面包含多張不同曝光的影像。
+   ![image](https://github.com/user-attachments/assets/aa48cc92-6a9d-46a1-9430-cf167756976e)
    - **輸出**: 輸出對齊後的影像，並保存至名為 "aligned" 的資料夾中。
    - **步驟**:
      - 將每張影像轉換為灰階。
@@ -23,6 +24,7 @@
    - **目的**: 使用第一步驟輸出的對齊影像生成 HDR 影像，並應用 Tone Mapping 技術（Drago、Mantiuk 和 Reinhard）進行處理。
    - **輸入**: 來自 HDR_MTB.py 的對齊影像。
    - **輸出**: 生成 HDR 影像，並使用不同的 Tone Mapping 算法（Drago、Mantiuk 和 Reinhard）將其轉換為低動態範圍（LDR）影像。
+   ![image](https://github.com/user-attachments/assets/b0e5b989-137e-4e0f-953e-657a3e9fc50a)
    - **步驟**:
      - 載入影像及其曝光時間。
      - 使用 Debevec 方法估算相機反應曲線。
@@ -50,6 +52,10 @@
    程式將讓使用者選擇一張影像，並顯示亮度直方圖及原始影像，計算並顯示影像品質指標。
 
 這四個程式依照順序運行，第一步驟用於影像對齊，第二步驟進行 HDR 影像生成和 Tone Mapping，第三步驟用來評估生成的 LDR 影像品質。
+
+### 結果圖
+![image](https://github.com/user-attachments/assets/e941c7e9-06f3-48d8-a65c-416624177b9d)
+
 
 ### 以下將詳細說明這四個程式執行方式。
 
