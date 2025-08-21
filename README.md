@@ -1,5 +1,5 @@
 # Digital-Visual-Effects---High-Dynamic-Range-Imaging
-@NTUCS
+@NTU CSIE
 
 Four Python programs for HDR image processing:
 
