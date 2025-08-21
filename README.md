@@ -1,8 +1,12 @@
 # Digital-Visual-Effects---High-Dynamic-Range-Imaging
 @NTUCS
 
----
 Four Python programs for HDR image processing:
+
+## Requirements
+```
+pip install opencv-python numpy matplotlib pillow scipy tqdm
+```
 
 ### 1. **Image Alignment (HDR_MTB.py)**
    Aligns images with different exposures using MTB algorithm.
@@ -34,16 +38,6 @@ Four Python programs for HDR image processing:
 
 Image alignment using MTB (Median Threshold Bitmap) algorithm.
 
-## Requirements
-```
-pip install opencv-python numpy matplotlib
-```
-
-## Usage
-Place images in a folder and run:
-```bash
-python HDR_MTB.py
-```
 Enter folder path. Outputs aligned images to `aligned/` folder and displacement chart as `best_offset_chart.jpg`.
 
 ## Key Functions
@@ -57,15 +51,6 @@ Enter folder path. Outputs aligned images to `aligned/` folder and displacement 
 
 HDR reconstruction using Debevec & Malik method with tone mapping.
 
-## Requirements
-```
-pip install opencv-python numpy matplotlib pillow scipy tqdm
-```
-
-## Usage
-```bash
-python HDR_Debevec.py
-```
 Enter image folder path. Outputs:
 - HDR image: `output_result.hdr`
 - LDR images: `output_result_ldr_Drago.jpg`, `output_result_ldr_Mantiuk.jpg`, `output_result_ldr_Reinhard.jpg`
@@ -84,15 +69,6 @@ Enter image folder path. Outputs:
 
 HDR synthesis using estimation-theoretic methods with tone mapping.
 
-## Requirements
-```
-pip install opencv-python numpy pillow scipy matplotlib
-```
-
-## Usage
-```bash
-python HDR_Robertson.py
-```
 Enter image folder path. Outputs:
 - HDR image: `output_estimation_result.hdr`
 - LDR images: `output_estimation_ldr_Drago.jpg`, `output_estimation_ldr_Mantiuk.jpg`, `output_estimation_ldr_Reinhard.jpg`
@@ -111,15 +87,6 @@ Enter image folder path. Outputs:
 
 Image quality assessment using brightness and saturation metrics.
 
-## Requirements
-```
-pip install opencv-python numpy matplotlib
-```
-
-## Usage
-```bash
-python HDR_color.py
-```
 Select an image via file dialog. Outputs:
 - Brightness histogram: `brightness_histogram.png`
 - Original image: `original_image.png`
